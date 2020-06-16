@@ -128,7 +128,7 @@ class Store {
 }
 
 
-const locallist = Store.getBooks();
+var locallist = Store.getBooks();
 
 let monster1 = locallist[0].monsterPoints;
 let monster2 = locallist[1].monsterPoints;
@@ -139,14 +139,18 @@ let curentbtn = {
   monster: "",
   monsimg: "",
   headline: "",
-  locallistnum: 7
+  locallistnum: 0
 };
+var lives = "";
+var htmli = "";
+var headline = "";
 
 // ! there is a function with this function! for some reas
+
 function updatePoints(monsterpoint, headlineclass) {
-  var lives = "🖤";
-  var htmli = `Lives: ${monsterpoint} adi ${lives.repeat(4 - monsterpoint)}`;
-  var headline = document.querySelector(headlineclass);
+  lives = "🖤";
+  htmli = `Lives: ${monsterpoint} adi ${lives.repeat(4 - monsterpoint)}`;
+  headline = document.querySelector(headlineclass);
   console.log(htmli);
   console.log(headline);
   headline.innerHTML = htmli;
@@ -155,6 +159,7 @@ function updatePoints(monsterpoint, headlineclass) {
     // maybe insted ad classes..........
     // document.getElementsByClassName(curentbtn.monsimg)[0].src = "img/50-Halloween-Zombie-Icons-O-08.png";
   }
+  // localStorage.setItem('books', JSON.stringify(locallist));
 }
 
 restart.addEventListener("click", e => {
@@ -180,8 +185,10 @@ myBtn1.addEventListener('click', e => {
 </li>`;
   curentbtn.element.innerHTML = newHtml;
   curentbtn.element.style.background = "#7372BD";
+  var temp1 = curentbtn.monster;
   curentbtn.element.classList.remove("delete");
   curentbtn.monster += 1;
+  var temp = curentbtn.monster;
   locallist[curentbtn.locallistnum].monsterPoints += 1;
   var localhtml = curentbtn.element.parentElement.innerHTML;
   locallist[curentbtn.locallistnum].monsterHtml = localhtml;
@@ -203,7 +210,7 @@ list1.addEventListener('click', e => {
     // e.target.parentElement.classList.add("oktoday");
     curentbtn.element = e.target.parentElement;
     curentbtn.monsimg = "monimg1";
-    curentbtn.monster = monster1;
+    curentbtn.monster = locallist[0].monsterPoints;
     curentbtn.headline = ".classh1";
     curentbtn.locallistnum = 0;
   }
@@ -214,7 +221,7 @@ list2.addEventListener('click', e => {
     // e.target.parentElement.classList.add("oktoday");
     curentbtn.element = e.target.parentElement;
     curentbtn.monsimg = "monimg2";
-    curentbtn.monster = monster2;
+    curentbtn.monster = locallist[1].monsterPoints;
     curentbtn.headline = ".classh2";
     curentbtn.locallistnum = 1;
   }
@@ -225,7 +232,7 @@ list3.addEventListener('click', e => {
     // e.target.parentElement.classList.add("oktoday");
     curentbtn.element = e.target.parentElement;
     curentbtn.monsimg = "monimg3";
-    curentbtn.monster = monster3;
+    curentbtn.monster = locallist[2].monsterPoints;
     curentbtn.headline = ".classh3";
     curentbtn.locallistnum = 2;
   }
