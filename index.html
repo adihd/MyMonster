@@ -22,7 +22,11 @@
 ">
     <div class="container-fluid text-center">
       <h1 class="mb-4 main-h1">My Daily Monsters</h1>
+      <button type="button" class="btn btn-primary" id="restart" onclick="">
+        restart
+      </button>
     </div>
+
   </div>
 
   </div>
@@ -34,30 +38,31 @@
 
       <header class="text-center text-light my-4">
         <img class="img-m monimg1" src="img/50-Halloween-Zombie-Icons-O-50.png" alt="">
-        <h4 class="classh1 mb-4"> Monster 1 </h4>
+        <h4 class="classh1 mb-4"> monster 1 </h4>
         <!-- <form class="search">
           <input class="form-control m-auto" type="text" name="search" placeholder="search todos" />
         </form> -->
       </header>
+      <ul class="monsterlist1 list-group todos mx-auto text-light" id="monsterid1"></ul>
 
-      <ul class="monsterlist1 list-group todos mx-auto text-light">
+      <!-- <ul class="monsterlist1 list-group todos mx-auto text-light">
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1</span>
-          <i class="fas fa-bomb delete"></i>
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part2</span>
-          <i class="fas fa-bomb delete"></i>
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part3</span>
-          <i class="fas fa-bomb delete"></i>
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part4</span>
-          <i class="fas fa-bomb delete"></i>
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
         </li>
-      </ul>
+      </ul> -->
 
       <!-- <form class="add text-center my-4">
         <label class="text-light">Add a new todo...</label>
@@ -70,30 +75,13 @@
 
       <header class="text-center text-light my-4">
         <img class="img-m monimg2" src="img/50-Halloween-Zombie-Icons-O-33.png" alt="">
-        <h4 class="classh2 mb-4"> Monster 2 </h4>
+        <h4 class="classh2 mb-4"> monster 2 </h4>
         <!-- <form class="search">
           <input class="form-control m-auto" type="text" name="search" placeholder="search todos" />
         </form> -->
       </header>
 
-      <ul class="monsterlist2 list-group todos mx-auto text-light">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1</span>
-          <i class="fas fa-bomb delete"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part2</span>
-          <i class="fas fa-bomb delete"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part3</span>
-          <i class="fas fa-bomb delete"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part4</span>
-          <i class="fas fa-bomb delete"></i>
-        </li>
-      </ul>
+      <ul class="monsterlist2 list-group todos mx-auto text-light" id="monsterid2"></ul>
 
       <!-- <form class="add text-center my-4">
         <label class="text-light">Add a new todo...</label>
@@ -106,30 +94,13 @@
 
       <header class="text-center text-light my-4">
         <img class="img-m monimg3" src="img/50-Halloween-Zombie-Icons-O-45.png" alt="">
-        <h4 class="classh3 mb-4"> Monster 3 </h4>
+        <h4 class="classh3 mb-4"> monster 3 </h4>
         <!-- <form class="search">
           <input class="form-control m-auto" type="text" name="search" placeholder="search todos" />
         </form> -->
       </header>
 
-      <ul class="monsterlist3 list-group todos mx-auto text-light">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1</span>
-          <i class="fas fa-bomb delete"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part2</span>
-          <i class="fas fa-bomb delete"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part3</span>
-          <i class="fas fa-bomb delete"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part4</span>
-          <i class="fas fa-bomb delete"></i>
-        </li>
-      </ul>
+      <ul class="monsterlist3 list-group todos mx-auto text-light" id="monsterid3"></ul>
 
       <!-- <form class="add text-center my-4">
         <label class="text-light">Add a new todo...</label>
@@ -140,12 +111,109 @@
     <!-- 4 -->
     <!--  end-->
 
+
   </div>
-  <!-- end row -->
+  <!-- !popup -->
+  <!-- Button trigger modal -->
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close btnReset" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- ! pomodoro app -->
+          <div class="container" style='
+    margin-left: 50px;
+    margin-right: 50px;
+'>
+            <div class="row">
+
+              <div class=" page-header text-center">
+                <h1>Pomodoro Clock</h1>
+              </div>
+
+            </div>
+            <!-- davbar -->
+            <div class="row">
+
+              <div class=" text-center">
+                <div class="list-group list-group-horizontal">
+                  <a href="#" class="list-group-item active" id="pomodoro">Pomodoro</a>
+                  <a href="#" class="list-group-item" id="short">Short Break</a>
+                  <a href="#" class="list-group-item" id="long">Long Break</a>
+                  <a href="#" class="list-group-item" id="custom">Custom</a>
+                </div>
+              </div>
+
+            </div>
+            <!-- slider! -->
+            <div class="row justify-content-center" id="slider" style="display: none;">
+
+              <div class="">
+                <input type="range" min="1" max="60" step="1" value="25" id="customTimer" />
+              </div>
+
+            </div>
+            <!-- timer -->
+            <div class="row justify-content-center">
+
+              <div class="">
+                <div id="timer" class="text-center"></div>
+              </div>
+
+            </div>
+            <!-- buutons -->
+            <div class="row justify-content-center">
+              <div class="btn-toolbar" role="toolbar">
+
+                <div class="text-center">
+                  <button type="button" class="btn btn-success btn-lg" id="btnStart">Start</button>
+                  <button type="button" class="btn btn-warning btn-lg" id="btnStop">Stop</button>
+                  <button type="button" class="btn btn-danger btn-lg btnReset" id="btnReset">Reset</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- !end pomodoro app -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btnReset" data-dismiss="modal">Give up</button>
+          <!-- when someone presed finish.... -->
+          <button type="button" class="btn btn-primary btnReset myBtn1" id="myBtn"
+            data-dismiss="modal">Finished!</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
+  <!-- end row
+  The core Firebase JS SDK is always required and must be listed first
+  <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script> -->
 
+  <!-- jqery and boostrap import.. -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
   <script src="app.js"></script>
+  <script src="pomodoro.js"></script>
 </body>
 
 </html>

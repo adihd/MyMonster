@@ -35,3 +35,16 @@ input[type=text]:focus {
 .filtered {
   display: none !important;
 }
+
+.list-group-horizontal .list-group-item {
+  display: inline-block;
+  margin-left: -4px;
+}
+
+.list-group-horizontal a {
+  background-color: #CCD5E5;
+}
+
+#timer {
+  font-size: 90px;
+}
