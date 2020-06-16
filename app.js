@@ -1,6 +1,6 @@
 // const addForm = document.querySelector('.add');
 // const search = document.querySelector('.search input');
-
+// adds
 const list1 = document.querySelector('.monsterlist1');
 const list2 = document.querySelector('.monsterlist2');
 const list3 = document.querySelector('.monsterlist3');
