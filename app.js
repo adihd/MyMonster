@@ -204,7 +204,7 @@ list1.addEventListener('click', e => {
     curentbtn.locallistnum = 0;
   }
 });
-// monster 2
+// monster 2s
 list2.addEventListener('click', e => {
   if (e.target.classList.contains('delete')) {
     // e.target.parentElement.classList.add("oktoday");
