@@ -30,6 +30,7 @@ class UI {
   }
 
   static addBookToList(book) {
+    // this is working yay :)
     const list = document.querySelector(book.name);
     list.innerHTML = book.monsterHtml;
     // ".classh2"
@@ -135,24 +136,26 @@ let monster3 = locallist[2].monsterPoints;
 // let monster4 = 0;
 let curentbtn = {
   element: "",
-  monster: monster1,
+  monster: "",
   monsimg: "",
   headline: "",
-  locallistnum: 3
+  locallistnum: 7
 };
 
 // ! there is a function with this function! for some reas
 function updatePoints(monsterpoint, headlineclass) {
   var lives = "🖤";
-  var html = `Lives: ${lives.repeat(4 - monsterpoint)}`;
+  var htmli = `Lives: ${monsterpoint} adi ${lives.repeat(4 - monsterpoint)}`;
   var headline = document.querySelector(headlineclass);
-  headline.innerHTML = html;
+  console.log(htmli);
+  console.log(headline);
+  headline.innerHTML = htmli;
   if (monsterpoint == 4) {
     console.log("the monster id dead!")
     // maybe insted ad classes..........
-    document.getElementsByClassName(curentbtn.monsimg)[0].src = "img/50-Halloween-Zombie-Icons-O-08.png";
+    // document.getElementsByClassName(curentbtn.monsimg)[0].src = "img/50-Halloween-Zombie-Icons-O-08.png";
   }
-};
+}
 
 restart.addEventListener("click", e => {
   localStorage.clear();
