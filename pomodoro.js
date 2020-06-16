@@ -7,6 +7,10 @@ $(function () {
     var timerText = '25:00';
     var selectedTime = pomodoro;
     var interval = null;
+    var pathclick = "sound/Arcade Click Plastic.wav";
+    var pathwin = "sound/Cartoon Big Win.wav";
+    document.getElementById("myBtn").disabled = true;
+
 
     $('#timer').text('25:00');
 
@@ -44,12 +48,17 @@ $(function () {
         setTimerText(selectedTime);
     });
 
-    $('#btnReset').on('click', function () {
+    $('.btnReset').on('click', function () {
+        // play click sound
+        new Audio(pathclick).play();
+        document.getElementById("myBtn").disabled = true;
         setTimerText(selectedTime);
         if (interval) clearInterval(interval);
     });
 
     $('#btnStart').on('click', function () {
+        // play click sound
+        new Audio(pathclick).play();
         var timer = selectedTime,
             minutes, seconds;
         if (interval) {
@@ -58,11 +67,17 @@ $(function () {
         interval = setInterval(function () {
             setTimerText(timer);
             if (--timer < 0) {
-                timer = duration;
+                // timer is 0 you got a point!
+                new Audio(pathwin).play();
+                document.getElementById("myBtn").disabled = false;
+                timer = 0;
+                clearInterval(interval);
             }
         }, 1000);
     });
     $('#btnStop').on('click', function () {
+        // play click sound
+        new Audio(pathclick).play();
         var time = $('#timer').val().split(':');
         this.selectedTime = parseInt(time[0] * 60) + parseInt(time[1]);
         clearInterval(interval);

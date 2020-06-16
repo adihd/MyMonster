@@ -142,51 +142,89 @@
 
 
   </div>
-  <!-- pomodoro app -->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6 page-header text-center">
-        <h1>Pomodoro Clock</h1>
-      </div>
-      <div class="col-md-3"></div>
-    </div>
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8 text-center">
-        <div class="list-group list-group-horizontal">
-          <a href="#" class="list-group-item active" id="pomodoro">Pomodoro</a>
-          <a href="#" class="list-group-item" id="long">Long Break</a>
-          <a href="#" class="list-group-item" id="short">Short Break</a>
-          <a href="#" class="list-group-item" id="custom">Custom</a>
+  <!-- !popup -->
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- ! pomodoro app -->
+          <div class="container" style='
+    margin-left: 50px;
+    margin-right: 50px;
+'>
+            <div class="row">
+
+              <div class=" page-header text-center">
+                <h1>Pomodoro Clock</h1>
+              </div>
+
+            </div>
+            <!-- davbar -->
+            <div class="row">
+
+              <div class=" text-center">
+                <div class="list-group list-group-horizontal">
+                  <a href="#" class="list-group-item active" id="pomodoro">Pomodoro</a>
+                  <a href="#" class="list-group-item" id="short">Short Break</a>
+                  <a href="#" class="list-group-item" id="long">Long Break</a>
+                  <a href="#" class="list-group-item" id="custom">Custom</a>
+                </div>
+              </div>
+
+            </div>
+            <!-- slider! -->
+            <div class="row justify-content-center" id="slider" style="display: none;">
+
+              <div class="">
+                <input type="range" min="1" max="60" step="1" value="25" id="customTimer" />
+              </div>
+
+            </div>
+            <!-- timer -->
+            <div class="row justify-content-center">
+
+              <div class="">
+                <div id="timer" class="text-center"></div>
+              </div>
+
+            </div>
+            <!-- buutons -->
+            <div class="row justify-content-center">
+              <div class="btn-toolbar" role="toolbar">
+
+                <div class="text-center">
+                  <button type="button" class="btn btn-success btn-lg" id="btnStart">Start</button>
+                  <button type="button" class="btn btn-warning btn-lg" id="btnStop">Stop</button>
+                  <button type="button" class="btn btn-danger btn-lg btnReset" id="btnReset">Reset</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- !end pomodoro app -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btnReset" data-dismiss="modal">Give up</button>
+          <button type="button" class="btn btn-primary btnReset" id="myBtn" data-dismiss="modal">Finished!</button>
         </div>
       </div>
-      <div class="col-md-2"></div>
-    </div>
-    <div class="row" id="slider" style="display: none;">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <input type="range" min="1" max="60" step="1" value="25" id="customTimer" />
-      </div>
-      <div class="col-md-4"></div>
-    </div>
-    <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <div id="timer" class="text-center"></div>
-      </div>
-      <div class="col-md-4"></div>
-    </div>
-    <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4 text-center">
-        <button type="button" class="btn btn-success btn-lg" id="btnStart">Start</button>
-        <button type="button" class="btn btn-warning btn-lg" id="btnStop">Stop</button>
-        <button type="button" class="btn btn-danger btn-lg" id="btnReset">Reset</button>
-      </div>
-      <div class="col-md-4"></div>
     </div>
   </div>
+
+
   <!-- end row -->
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
@@ -213,7 +251,7 @@
     const db = firebase.firestore();
   </script>
 
-  <!-- שגשג -->
+  <!-- jqery and boostrap import.. -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
   </script>
