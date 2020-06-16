@@ -141,6 +141,7 @@ let curentbtn = {
   locallistnum: 3
 };
 
+// ! there is a function with this function! for some reas
 function updatePoints(monsterpoint, headlineclass) {
   var lives = "🖤";
   var html = `Lives: ${lives.repeat(4 - monsterpoint)}`;
