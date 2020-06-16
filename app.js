@@ -3,12 +3,14 @@
 // adds
 // localStorage.getItem('books')
 const restart = document.querySelector("#restart");
+const restart1 = document.querySelector("#restart1");
 const list1 = document.querySelector('.monsterlist1');
 const list2 = document.querySelector('.monsterlist2');
 const list3 = document.querySelector('.monsterlist3');
 // const list4 = document.querySelector('.monsterlist4');
 
 const myBtn1 = document.querySelector(".myBtn1");
+var pathwin = new Audio("sound/My_Beloved_Monster_lyrics.mp3");
 // Book Class: Represents a Book
 class Book {
   constructor(title, author, isbn) {
@@ -29,10 +31,11 @@ class UI {
   }
 
   static addBookToList(book) {
+    // this is working yay :)
     const list = document.querySelector(book.name);
     list.innerHTML = book.monsterHtml;
     // ".classh2"
-    updatePoints(book.monsterPoints, book.monsterhead);
+    updatePoints(book.monsterPoints, book.monsterhead, book.mosterimgclass);
   }
 }
 
@@ -45,6 +48,7 @@ class Store {
       books = [{
         name: "#monsterid1",
         monsterPoints: 0,
+        mosterimgclass: "monimg1",
         monsterhead: ".classh1",
         monsterHtml: `
         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -66,6 +70,7 @@ class Store {
       `
       }, {
         name: "#monsterid2",
+        mosterimgclass: "monimg2",
         monsterPoints: 0,
         monsterhead: ".classh2",
         monsterHtml: `
@@ -89,6 +94,7 @@ class Store {
       }, {
         name: "#monsterid3",
         monsterhead: ".classh3",
+        mosterimgclass: "monimg3",
         monsterPoints: 0,
         monsterHtml: `
         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -126,7 +132,7 @@ class Store {
 }
 
 
-const locallist = Store.getBooks();
+var locallist = Store.getBooks();
 
 let monster1 = locallist[0].monsterPoints;
 let monster2 = locallist[1].monsterPoints;
@@ -134,22 +140,27 @@ let monster3 = locallist[2].monsterPoints;
 // let monster4 = 0;
 let curentbtn = {
   element: "",
-  monster: monster1,
-  monsimg: "",
+  monster: "",
+  monsimg: "monimg1",
   headline: "",
-  locallistnum: 3
+  locallistnum: 0
 };
 
-function updatePoints(monsterpoint, headlineclass) {
-  const lives = "🖤";
-  const html = `Lives: ${lives.repeat(4 - monsterpoint)}`;
-  const headline = document.querySelector(headlineclass);
-  headline.innerHTML = html;
-  if (monsterpoint == 4) {
+// ! there is a function with this function! for some reas
+
+function updatePoints(monsterpoint, headlineclass, monsimg1) {
+  var lives = "🖤";
+  var htmli = `Lives: ${lives.repeat(4 - monsterpoint)}`;
+  var headline = document.querySelector(headlineclass);
+  console.log(htmli);
+  console.log(headline);
+  headline.innerHTML = htmli;
+  if (monsterpoint >= 4) {
     console.log("the monster id dead!")
     // maybe insted ad classes..........
-    document.getElementsByClassName(curentbtn.monsimg)[0].src = "img/50-Halloween-Zombie-Icons-O-08.png";
+    document.getElementsByClassName(monsimg1)[0].src = "img/dead.png";
   }
+  // localStorage.setItem('books', JSON.stringify(locallist));
 }
 
 restart.addEventListener("click", e => {
@@ -157,23 +168,33 @@ restart.addEventListener("click", e => {
   location.reload();
 });
 
+// restart1.addEventListener("click", e => {
+//   // localStorage.clear();
+//   // location.reload();
+//   locallist[0].monsterPoints += 1;
+//   updatePoints(locallist[0].monsterPoints, ".classh1")
+//   localStorage.setItem('books', JSON.stringify(books));
+// });
+
 
 // wthe moment someone pressing a click wait for ans from the model! if you got positive ans do your thing!
 myBtn1.addEventListener('click', e => {
   // console.log("hi adi!");
   // console.log();
   var newHtml = `
-  <span> Good job! </span>
+  <span> Good job! </span>  
 </li>`;
   curentbtn.element.innerHTML = newHtml;
   curentbtn.element.style.background = "#7372BD";
+  var temp1 = curentbtn.monster;
   curentbtn.element.classList.remove("delete");
   curentbtn.monster += 1;
+  var temp = curentbtn.monster;
   locallist[curentbtn.locallistnum].monsterPoints += 1;
   var localhtml = curentbtn.element.parentElement.innerHTML;
   locallist[curentbtn.locallistnum].monsterHtml = localhtml;
 
-  updatePoints(curentbtn.monster, curentbtn.headline);
+  updatePoints(curentbtn.monster, curentbtn.headline, curentbtn.monsimg);
   // change the inner html to the new mondtser
   // if the points is 4 kill the monster:
   // if (curentbtn.monster == 4) {
@@ -190,18 +211,18 @@ list1.addEventListener('click', e => {
     // e.target.parentElement.classList.add("oktoday");
     curentbtn.element = e.target.parentElement;
     curentbtn.monsimg = "monimg1";
-    curentbtn.monster = monster1;
+    curentbtn.monster = locallist[0].monsterPoints;
     curentbtn.headline = ".classh1";
     curentbtn.locallistnum = 0;
   }
 });
-// monster 2
+// monster 2s
 list2.addEventListener('click', e => {
   if (e.target.classList.contains('delete')) {
     // e.target.parentElement.classList.add("oktoday");
     curentbtn.element = e.target.parentElement;
     curentbtn.monsimg = "monimg2";
-    curentbtn.monster = monster2;
+    curentbtn.monster = locallist[1].monsterPoints;
     curentbtn.headline = ".classh2";
     curentbtn.locallistnum = 1;
   }
@@ -212,7 +233,7 @@ list3.addEventListener('click', e => {
     // e.target.parentElement.classList.add("oktoday");
     curentbtn.element = e.target.parentElement;
     curentbtn.monsimg = "monimg3";
-    curentbtn.monster = monster3;
+    curentbtn.monster = locallist[2].monsterPoints;
     curentbtn.headline = ".classh3";
     curentbtn.locallistnum = 2;
   }
