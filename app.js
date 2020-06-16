@@ -7,11 +7,8 @@ const list1 = document.querySelector('.monsterlist1');
 const list2 = document.querySelector('.monsterlist2');
 const list3 = document.querySelector('.monsterlist3');
 // const list4 = document.querySelector('.monsterlist4');
-const headline1 = document.querySelector(".classh1");
-const headline2 = document.querySelector(".classh2");
-const headline3 = document.querySelector(".classh3");
-const myBtn1 = document.querySelector(".myBtn1");
 
+const myBtn1 = document.querySelector(".myBtn1");
 // Book Class: Represents a Book
 class Book {
   constructor(title, author, isbn) {
@@ -26,11 +23,16 @@ class UI {
   static displayBooks() {
     const books = Store.getBooks();
     books.forEach((book) => UI.addBookToList(book));
+    // updatet the headline based on the localStorege
+    // updatet the img based on the localStorege
+
   }
 
   static addBookToList(book) {
     const list = document.querySelector(book.name);
     list.innerHTML = book.monsterHtml;
+    // ".classh2"
+    updatePoints(book.monsterPoints, book.monsterhead);
   }
 }
 
@@ -43,65 +45,68 @@ class Store {
       books = [{
         name: "#monsterid1",
         monsterPoints: 0,
+        monsterhead: ".classh1",
         monsterHtml: `
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
+          <span></span>
           <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
+          <span></span>
           <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
+          <span></span>
           <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
+          <span></span>
           <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
         </li>
       `
       }, {
         name: "#monsterid2",
         monsterPoints: 0,
+        monsterhead: ".classh2",
         monsterHtml: `
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
+          <span></span>
           <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
+          <span></span>
           <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
+          <span></span>
           <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
+          <span></span>
           <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
         </li>
       `
       }, {
         name: "#monsterid3",
+        monsterhead: ".classh3",
         monsterPoints: 0,
         monsterHtml: `
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
+        <span></span>
+        <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span></span>
+        <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span></span>
+        <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span></span>
+        <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+      </li>
       `
       }];
       localStorage.setItem('books', JSON.stringify(books));
@@ -131,14 +136,20 @@ let curentbtn = {
   element: "",
   monster: monster1,
   monsimg: "",
-  headline: headline1,
+  headline: "",
   locallistnum: 3
 };
 
-function updatePoints(monster, headline) {
+function updatePoints(monsterpoint, headlineclass) {
   const lives = "🖤";
-  const html = `Lives: ${lives.repeat(4 - monster)}`;
+  const html = `Lives: ${lives.repeat(4 - monsterpoint)}`;
+  const headline = document.querySelector(headlineclass);
   headline.innerHTML = html;
+  if (monsterpoint == 4) {
+    console.log("the monster id dead!")
+    // maybe insted ad classes..........
+    document.getElementsByClassName(curentbtn.monsimg)[0].src = "img/50-Halloween-Zombie-Icons-O-08.png";
+  }
 }
 
 restart.addEventListener("click", e => {
@@ -165,11 +176,11 @@ myBtn1.addEventListener('click', e => {
   updatePoints(curentbtn.monster, curentbtn.headline);
   // change the inner html to the new mondtser
   // if the points is 4 kill the monster:
-  if (curentbtn.monster == 4) {
-    console.log("the monster id dead!")
-    // maybe insted ad classes..........
-    document.getElementsByClassName(curentbtn.monsimg)[0].src = "img/50-Halloween-Zombie-Icons-O-08.png";
-  }
+  // if (curentbtn.monster == 4) {
+  //   console.log("the monster id dead!")
+  //   // maybe insted ad classes..........
+  //   document.getElementsByClassName(curentbtn.monsimg)[0].src = "img/50-Halloween-Zombie-Icons-O-08.png";
+  // }
   localStorage.setItem('books', JSON.stringify(locallist));
 });
 
@@ -180,7 +191,7 @@ list1.addEventListener('click', e => {
     curentbtn.element = e.target.parentElement;
     curentbtn.monsimg = "monimg1";
     curentbtn.monster = monster1;
-    curentbtn.headline = headline1;
+    curentbtn.headline = ".classh1";
     curentbtn.locallistnum = 0;
   }
 });
@@ -191,7 +202,7 @@ list2.addEventListener('click', e => {
     curentbtn.element = e.target.parentElement;
     curentbtn.monsimg = "monimg2";
     curentbtn.monster = monster2;
-    curentbtn.headline = headline2;
+    curentbtn.headline = ".classh2";
     curentbtn.locallistnum = 1;
   }
 });
@@ -202,7 +213,7 @@ list3.addEventListener('click', e => {
     curentbtn.element = e.target.parentElement;
     curentbtn.monsimg = "monimg3";
     curentbtn.monster = monster3;
-    curentbtn.headline = headline3;
+    curentbtn.headline = ".classh3";
     curentbtn.locallistnum = 2;
   }
 });
