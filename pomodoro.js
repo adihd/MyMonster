@@ -69,9 +69,9 @@ $(function () {
             if (--timer < 0) {
                 // timer is 0 you got a point!
                 new Audio(pathwin).play();
-                document.getElementById("myBtn").disabled = false;
                 timer = 0;
                 clearInterval(interval);
+                document.getElementById("myBtn").disabled = false;
             }
         }, 1000);
     });
