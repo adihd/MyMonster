@@ -7,8 +7,10 @@ $(function () {
     var timerText = '25:00';
     var selectedTime = pomodoro;
     var interval = null;
-    var pathclick = "sound/Arcade Click Plastic.wav";
-    var pathwin = "sound/Cartoon Big Win.wav";
+    var pathclick = new Audio("sound/Arcade Click Plastic.wav");
+    var pathwin = new Audio("sound/Cartoon Big Win.wav");
+    // volume!
+    pathwin.volume = 0.5;
     // document.getElementById("myBtn").disabled = true;
 
 
@@ -50,7 +52,7 @@ $(function () {
 
     $('.btnReset').on('click', function () {
         // play click sound
-        new Audio(pathclick).play();
+        pathclick.play();
         // document.getElementById("myBtn").disabled = true;
         setTimerText(selectedTime);
         if (interval) clearInterval(interval);
@@ -58,7 +60,7 @@ $(function () {
 
     $('#btnStart').on('click', function () {
         // play click sound
-        new Audio(pathclick).play();
+        pathclick.play();
         var timer = selectedTime,
             minutes, seconds;
         if (interval) {
@@ -68,7 +70,7 @@ $(function () {
             setTimerText(timer);
             if (--timer < 0) {
                 // timer is 0 you got a point!
-                new Audio(pathwin).play();
+                pathwin.play();
                 timer = 0;
                 clearInterval(interval);
                 document.getElementById("myBtn").disabled = false;
@@ -77,7 +79,7 @@ $(function () {
     });
     $('#btnStop').on('click', function () {
         // play click sound
-        new Audio(pathclick).play();
+        pathclick.play();
         var time = $('#timer').val().split(':');
         this.selectedTime = parseInt(time[0] * 60) + parseInt(time[1]);
         clearInterval(interval);
