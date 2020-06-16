@@ -9,7 +9,7 @@ $(function () {
     var interval = null;
     var pathclick = "sound/Arcade Click Plastic.wav";
     var pathwin = "sound/Cartoon Big Win.wav";
-    document.getElementById("myBtn").disabled = true;
+    // document.getElementById("myBtn").disabled = true;
 
 
     $('#timer').text('25:00');
@@ -51,7 +51,7 @@ $(function () {
     $('.btnReset').on('click', function () {
         // play click sound
         new Audio(pathclick).play();
-        document.getElementById("myBtn").disabled = true;
+        // document.getElementById("myBtn").disabled = true;
         setTimerText(selectedTime);
         if (interval) clearInterval(interval);
     });

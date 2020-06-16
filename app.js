@@ -3,6 +3,7 @@
 // adds
 // localStorage.getItem('books')
 const restart = document.querySelector("#restart");
+const restart1 = document.querySelector("#restart1");
 const list1 = document.querySelector('.monsterlist1');
 const list2 = document.querySelector('.monsterlist2');
 const list3 = document.querySelector('.monsterlist3');
@@ -141,20 +142,28 @@ let curentbtn = {
 };
 
 function updatePoints(monsterpoint, headlineclass) {
-  const lives = "🖤";
-  const html = `Lives: ${lives.repeat(4 - monsterpoint)}`;
-  const headline = document.querySelector(headlineclass);
+  var lives = "🖤";
+  var html = `Lives: ${lives.repeat(4 - monsterpoint)}`;
+  var headline = document.querySelector(headlineclass);
   headline.innerHTML = html;
   if (monsterpoint == 4) {
     console.log("the monster id dead!")
     // maybe insted ad classes..........
     document.getElementsByClassName(curentbtn.monsimg)[0].src = "img/50-Halloween-Zombie-Icons-O-08.png";
   }
-}
+};
 
 restart.addEventListener("click", e => {
   localStorage.clear();
   location.reload();
+});
+
+restart1.addEventListener("click", e => {
+  // localStorage.clear();
+  // location.reload();
+  locallist[0].monsterPoints += 1;
+  updatePoints(locallist[0].monsterPoints, ".classh1")
+  localStorage.setItem('books', JSON.stringify(books));
 });
 
 
