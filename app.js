@@ -10,6 +10,7 @@ const list3 = document.querySelector('.monsterlist3');
 // const list4 = document.querySelector('.monsterlist4');
 
 const myBtn1 = document.querySelector(".myBtn1");
+var pathwin = new Audio("sound/My_Beloved_Monster_lyrics.mp3");
 // Book Class: Represents a Book
 class Book {
   constructor(title, author, isbn) {
@@ -157,7 +158,7 @@ function updatePoints(monsterpoint, headlineclass, monsimg1) {
   if (monsterpoint >= 4) {
     console.log("the monster id dead!")
     // maybe insted ad classes..........
-    document.getElementsByClassName(monsimg1)[0].src = "img/50-Halloween-Zombie-Icons-O-08.png";
+    document.getElementsByClassName(monsimg1)[0].src = "img/dead.png";
   }
   // localStorage.setItem('books', JSON.stringify(locallist));
 }
