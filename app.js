@@ -158,7 +158,6 @@ myBtn1.addEventListener('click', e => {
   curentbtn.element.style.background = "#7372BD";
   curentbtn.element.classList.remove("delete");
   curentbtn.monster += 1;
-  locallist[curentbtn.locallistnum].monsterPoints += 1;
   var localhtml = curentbtn.element.parentElement.innerHTML;
   locallist[curentbtn.locallistnum].monsterHtml = localhtml;
 
