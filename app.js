@@ -11,9 +11,120 @@ const headline2 = document.querySelector(".classh2");
 const headline3 = document.querySelector(".classh3");
 const myBtn1 = document.querySelector(".myBtn1");
 
-let monster1 = 0;
-let monster2 = 0;
-let monster3 = 0;
+// Book Class: Represents a Book
+class Book {
+  constructor(title, author, isbn) {
+    this.title = title;
+    this.author = author;
+    this.isbn = isbn;
+  }
+}
+
+// UI Class: Handle UI Tasks
+class UI {
+  static displayBooks() {
+    const books = Store.getBooks();
+    books.forEach((book) => UI.addBookToList(book));
+  }
+
+  static addBookToList(book) {
+    const list = document.querySelector(book.name);
+    list.innerHTML = book.monsterHtml;
+  }
+}
+
+// Store Class: Handles Storage
+class Store {
+  static getBooks() {
+    let books;
+    if (localStorage.getItem('books') === null) {
+
+      books = [{
+        name: "#monsterid1",
+        monsterPoints: 0,
+        monsterHtml: `
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+        </li>
+      `
+      }, {
+        name: "#monsterid2",
+        monsterPoints: 0,
+        monsterHtml: `
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+        </li>
+      `
+      }, {
+        name: "#monsterid3",
+        monsterPoints: 0,
+        monsterHtml: `
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>part1 try</span>
+          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+        </li>
+      `
+      }];
+      localStorage.setItem('books', JSON.stringify(books));
+    } else {
+      books = JSON.parse(localStorage.getItem('books'));
+    }
+
+    return books;
+  }
+
+  static addBook(book) {
+    const books = Store.getBooks();
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+
+}
+
+
+const locallist = Store.getBooks();
+
+let monster1 = locallist[0].monsterPoints;
+let monster2 = locallist[1].monsterPoints;
+let monster3 = locallist[2].monsterPoints;
 // let monster4 = 0;
 let curentbtn = {
   element: "",
@@ -97,17 +208,17 @@ list3.addEventListener('click', e => {
 //   window.localStorage.myitems = list.innerHTML;
 // }
 
-function updateUI(data) {
-  // loop go over all the saved object and if there is a change change the ui acordinly
-  updateMonster()
-  updateMonster()
-  updateMonster()
+// function updateUI(data) {
+//   // loop go over all the saved object and if there is a change change the ui acordinly
+//   updateMonster()
+//   updateMonster()
+//   updateMonster()
 
-}
+// }
 
-function updateMonster(params) {
+// function updateMonster(params) {
 
-}
+// }
 
 // // check if element saved in local storege and if so update the softwere based on it:
 // if (localStorage.getItem('monsters')) {
@@ -171,69 +282,7 @@ function updateMonster(params) {
 // ///////////////////////////////////////////////// local storage
 
 
-// Book Class: Represents a Book
-class Book {
-  constructor(title, author, isbn) {
-    this.title = title;
-    this.author = author;
-    this.isbn = isbn;
-  }
-}
 
-// UI Class: Handle UI Tasks
-class UI {
-  static displayBooks() {
-    const books = Store.getBooks();
-    books.forEach((book) => UI.addBookToList(book));
-  }
-
-  static addBookToList(book) {
-    const list = document.querySelector(book.name);
-    list.innerHTML = book.monsterHtml;
-  }
-}
-
-// Store Class: Handles Storage
-class Store {
-  static getBooks() {
-    let books;
-    if (localStorage.getItem('books') === null) {
-      books = [{
-        name: "#monsterid1",
-        monsterPoints: 0,
-        monsterHtml: `
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span>part1 try</span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
-      `
-      }];
-    } else {
-      books = JSON.parse(localStorage.getItem('books'));
-    }
-
-    return books;
-  }
-
-  static addBook(book) {
-    const books = Store.getBooks();
-    books.push(book);
-    localStorage.setItem('books', JSON.stringify(books));
-  }
-
-}
 
 // Event: Display Books
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
