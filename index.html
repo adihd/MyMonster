@@ -142,6 +142,29 @@
 
   </div>
   <!-- end row -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyB4DcAXP6uP-X4ZxrSDozP0wOtjwqoR2YI",
+      authDomain: "mymonster-abfef.firebaseapp.com",
+      databaseURL: "https://mymonster-abfef.firebaseio.com",
+      projectId: "mymonster-abfef",
+      storageBucket: "mymonster-abfef.appspot.com",
+      messagingSenderId: "191003503753",
+      appId: "1:191003503753:web:924bd881dac70e91376a58",
+      measurementId: "G-6E3903JXCG"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
 
 
 
