@@ -167,7 +167,8 @@ function updatePoints(monsterpoint, headlineclass, monsimg1) {
   if (monsterpoint >= 4) {
     console.log("the monster id dead!")
     // maybe insted ad classes..........
-    document.getElementsByClassName(monsimg1)[0].src = "img/dead.png";
+
+    document.getElementsByClassName(monsimg1)[0].src = "img/alive.png";
   }
   // localStorage.setItem('books', JSON.stringify(locallist));
 }
@@ -193,6 +194,7 @@ myBtn1.addEventListener('click', e => {
   // console.log();
   var newHtml = `
   <span> Good job! </span>  
+  
 </li>`;
   curentbtn.element.innerHTML = newHtml;
   curentbtn.element.style.background = "#7372BD";
