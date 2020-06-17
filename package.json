@@ -1,0 +1,22 @@
+{
+  "name": "mymonster",
+  "version": "1.0.0",
+  "description": "aS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adihd/MyMonster.git"
+  },
+  "author": "adi strauss",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adihd/MyMonster/issues"
+  },
+  "homepage": "https://github.com/adihd/MyMonster#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.0"
+  }
+}
