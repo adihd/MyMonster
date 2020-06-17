@@ -8,19 +8,10 @@ const list1 = document.querySelector('.monsterlist1');
 const list2 = document.querySelector('.monsterlist2');
 const list3 = document.querySelector('.monsterlist3');
 // const list4 = document.querySelector('.monsterlist4');
+
 const myBtn1 = document.querySelector(".myBtn1");
-var monstersong = new Audio("sound/My_Beloved_Monster_lyrics.mp3");
-monstersong.volume = 0.5;
-var isPlaying = false;
-monstersong.onplaying = function () {
-  isPlaying = true;
-};
-monstersong.onpause = function () {
-  isPlaying = false;
-};
+var pathwin = new Audio("sound/My_Beloved_Monster_lyrics.mp3");
 // Book Class: Represents a Book
-
-
 class Book {
   constructor(title, author, isbn) {
     this.title = title;
@@ -178,14 +169,13 @@ restart.addEventListener("click", e => {
   location.reload();
 });
 
-
-function togglePlay() {
-  if (isPlaying) {
-    monstersong.pause()
-  } else {
-    monstersong.play();
-  }
-};
+// restart1.addEventListener("click", e => {
+//   // localStorage.clear();
+//   // location.reload();
+//   locallist[0].monsterPoints += 1;
+//   updatePoints(locallist[0].monsterPoints, ".classh1")
+//   localStorage.setItem('books', JSON.stringify(books));
+// });
 
 
 // wthe moment someone pressing a click wait for ans from the model! if you got positive ans do your thing!
