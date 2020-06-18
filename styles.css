@@ -59,6 +59,19 @@ input[type=text]:focus {
   text-align: center;
 }
 
+.finish {
+  background: #596175;
+  border-bottom: .25rem solid rgba(0, 0, 0, .2);
+  border-radius: .5rem;
+  border-right: .25rem solid rgba(0, 0, 0, .2);
+  box-sizing: border-box;
+  color: #fff;
+  line-height: 0;
+  margin-bottom: 0.6rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
 
 
 .delete {

@@ -51,21 +51,21 @@ class Store {
         mosterimgclass: "monimg1",
         monsterhead: ".classh1",
         monsterHtml: `
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item d-flex justify-content-center align-items-center">
         <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
       </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item d-flex justify-content-center align-items-center">
         <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
       </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item d-flex justify-content-center align-items-center">
         <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
       </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item d-flex justify-content-center align-items-center">
         <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
+        <li class="list-group-item d-flex justify-content-center align-items-center">
         <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
       </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item d-flex justify-content-center align-items-center">
         <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
       </li>
       `
@@ -75,16 +75,16 @@ class Store {
         monsterPoints: 4,
         monsterhead: ".classh2",
         monsterHtml: `
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item d-flex justify-content-center align-items-center">
         <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
       </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item d-flex justify-content-center align-items-center">
         <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
       </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item d-flex justify-content-center align-items-center">
         <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
       </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item d-flex justify-content-center align-items-center">
         <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
       </li>
       `
@@ -94,10 +94,10 @@ class Store {
         mosterimgclass: "monimg3",
         monsterPoints: 2,
         monsterHtml: `
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item d-flex justify-content-center align-items-center">
         <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
       </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item d-flex justify-content-center align-items-center">
         <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
       </li>
       `
@@ -107,7 +107,7 @@ class Store {
         mosterimgclass: "monimg4",
         monsterPoints: 1,
         monsterHtml: `
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item d-flex justify-content-center align-items-center">
         <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
       </li>
       `
@@ -184,7 +184,7 @@ myBtn1.addEventListener('click', e => {
   
 </li>`;
   curentbtn.element.innerHTML = newHtml;
-  curentbtn.element.style.background = "#778CEB";
+  curentbtn.element.parentElement.style.background = "#778CEB";
   var temp1 = curentbtn.monster;
   curentbtn.element.classList.remove("delete");
   curentbtn.monster -= 1;
