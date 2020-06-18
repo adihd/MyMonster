@@ -10,6 +10,7 @@
   <!-- fontawesome import -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
   <link rel="stylesheet" href="bootstrap.min.css">
   <!-- stylesheet import -->
   <!-- <link
@@ -17,21 +18,28 @@
     rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+  <script src="https://unicons.iconscout.com/release/v2.1.9/script/monochrome/bundle.js"></script>
+
 
   <link rel="stylesheet" href="styles.css">
   <title>My Monster</title>
+
+  <!-- <script src="https://unicons.iconscout.com/release/v2.1.9/script/monochrome/bundle.js"></script> -->
+
+
 </head>
 
 <body>
   <!-- h1 -->
   <div class="row" style="
-  margin-top: 50px;
+  margin-top: 20px;
 ">
     <div class="container-fluid text-center">
-      <h1 class="mb-4 main-h1">My Daily Monsters <button type="button" class="btn btn-success headerbtn" id="restart"
+      <h1 class=" main-h1">My Daily Monsters <button type="button" class="btn btn-primary headerbtn" id="restart"
           onclick="">
           Start A New Day!
-        </button><button type="button" class="btn btn btn-secondary" id="song" onclick="togglePlay()">
+        </button><button type="button" class="btn btn btn-danger" id="song" onclick="togglePlay()">
           monstersong!
         </button></h1>
 
@@ -45,7 +53,8 @@
     <div class="row" style="">
 
       <!-- monster 1 start -->
-      <div class="col-sm">
+      <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+      <div class="col-6 col-md-3">
 
         <div class="container">
 
@@ -62,7 +71,7 @@
         </div>
       </div>
       <!-- monster 2 start -->
-      <div class="col-sm">
+      <div class="col-6 col-md-3">
 
         <div class="container">
 
@@ -78,7 +87,7 @@
         </div>
       </div>
       <!-- monster 3 start -->
-      <div class="col-sm">
+      <div class="col-6 col-md-3">
 
         <div class="container">
 
@@ -94,6 +103,24 @@
 
         </div>
       </div>
+      <!-- monster 4 the big one ! -->
+      <div class="col-6 col-md-3">
+
+        <div class="container">
+
+          <header class="text-center text-light my-4">
+            <img class="img-m monimg4" src="img/alive.png" alt="">
+            <!-- <img class="img-m monimg3" src="img/597554-halloween/png/041-skeleton.png" alt=""> -->
+            <!-- <img src="https://img.icons8.com/color/96/000000/monster-face.png" /> -->
+            <h4 class="classh4 mb-4"> monster 3 </h4>
+
+          </header>
+
+          <ul class="monsterlist4 list-group todos mx-auto text-light" id="monsterid4"></ul>
+
+        </div>
+      </div>
+      <!-- end of monster 4 -->
     </div>
   </div>
   <!-- end of monsters -->
@@ -200,6 +227,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
   </script>
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
   <script src="app.js"></script>
   <script src="pomodoro.js"></script>
 </body>
