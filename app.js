@@ -10,8 +10,27 @@ const list3 = document.querySelector('.monsterlist3');
 const list4 = document.querySelector('.monsterlist4');
 
 const myBtn1 = document.querySelector(".myBtn1");
-var monstersong = new Audio("sound/My_Beloved_Monster_lyrics.mp3");
+
+var myAudio = new Audio("sound/My_Beloved_Monster_lyrics.mp3");
 // Book Class: Represents a Book
+var isPlaying = false;
+
+function togglePlay() {
+  if (isPlaying) {
+    myAudio.pause()
+  } else {
+    myAudio.play();
+  }
+};
+myAudio.onplaying = function () {
+  isPlaying = true;
+};
+myAudio.onpause = function () {
+  isPlaying = false;
+};
+
+
+
 class Book {
   constructor(title, author, isbn) {
     this.title = title;
@@ -165,14 +184,6 @@ restart.addEventListener("click", e => {
   localStorage.clear();
   location.reload();
 });
-
-// restart1.addEventListener("click", e => {
-//   // localStorage.clear();
-//   // location.reload();
-//   locallist[0].monsterPoints += 1;
-//   updatePoints(locallist[0].monsterPoints, ".classh1")
-//   localStorage.setItem('books', JSON.stringify(books));
-// });
 
 
 // wthe moment someone pressing a click wait for ans from the model! if you got positive ans do your thing!
