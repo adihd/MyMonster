@@ -10,7 +10,7 @@ const list3 = document.querySelector('.monsterlist3');
 const list4 = document.querySelector('.monsterlist4');
 
 const myBtn1 = document.querySelector(".myBtn1");
-var pathwin = new Audio("sound/My_Beloved_Monster_lyrics.mp3");
+var monstersong = new Audio("sound/My_Beloved_Monster_lyrics.mp3");
 // Book Class: Represents a Book
 class Book {
   constructor(title, author, isbn) {
@@ -190,8 +190,14 @@ myBtn1.addEventListener('click', e => {
   curentbtn.monster -= 1;
   var temp = curentbtn.monster;
   locallist[curentbtn.locallistnum].monsterPoints -= 1;
-  var localhtml = curentbtn.element.parentElement.innerHTML;
+  var localhtml = curentbtn.element.parentElement.parentElement.innerHTML;
+  console.log("localhtml:");
+  console.log(localhtml);
   locallist[curentbtn.locallistnum].monsterHtml = localhtml;
+  console.log("curentbtn.locallistnum:");
+  console.log(curentbtn.locallistnum);
+  console.log("locallist:");
+  console.log(locallist);
 
   updatePoints(curentbtn.monster, curentbtn.headline, curentbtn.monsimg);
   // change the inner html to the new mondtser
