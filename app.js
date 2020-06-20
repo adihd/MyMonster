@@ -7,11 +7,30 @@ const restart1 = document.querySelector("#restart1");
 const list1 = document.querySelector('.monsterlist1');
 const list2 = document.querySelector('.monsterlist2');
 const list3 = document.querySelector('.monsterlist3');
-// const list4 = document.querySelector('.monsterlist4');
+const list4 = document.querySelector('.monsterlist4');
 
 const myBtn1 = document.querySelector(".myBtn1");
-var pathwin = new Audio("sound/My_Beloved_Monster_lyrics.mp3");
+
+var myAudio = new Audio("sound/My_Beloved_Monster_lyrics.mp3");
 // Book Class: Represents a Book
+var isPlaying = false;
+
+function togglePlay() {
+  if (isPlaying) {
+    myAudio.pause()
+  } else {
+    myAudio.play();
+  }
+};
+myAudio.onplaying = function () {
+  isPlaying = true;
+};
+myAudio.onpause = function () {
+  isPlaying = false;
+};
+
+
+
 class Book {
   constructor(title, author, isbn) {
     this.title = title;
@@ -47,71 +66,68 @@ class Store {
 
       books = [{
         name: "#monsterid1",
-        monsterPoints: 0,
+        monsterPoints: 6,
         mosterimgclass: "monimg1",
         monsterhead: ".classh1",
         monsterHtml: `
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span></span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span></span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span></span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span></span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
+      <li class="list-group-item d-flex justify-content-center align-items-center">
+        <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
+      </li>
+      <li class="list-group-item d-flex justify-content-center align-items-center">
+        <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
+      </li>
+      <li class="list-group-item d-flex justify-content-center align-items-center">
+        <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
+      </li>
+      <li class="list-group-item d-flex justify-content-center align-items-center">
+        <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
+        <li class="list-group-item d-flex justify-content-center align-items-center">
+        <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
+      </li>
+      <li class="list-group-item d-flex justify-content-center align-items-center">
+        <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
+      </li>
       `
       }, {
         name: "#monsterid2",
         mosterimgclass: "monimg2",
-        monsterPoints: 0,
+        monsterPoints: 4,
         monsterhead: ".classh2",
         monsterHtml: `
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span></span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span></span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span></span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <span></span>
-          <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-        </li>
+      <li class="list-group-item d-flex justify-content-center align-items-center">
+        <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
+      </li>
+      <li class="list-group-item d-flex justify-content-center align-items-center">
+        <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
+      </li>
+      <li class="list-group-item d-flex justify-content-center align-items-center">
+        <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
+      </li>
+      <li class="list-group-item d-flex justify-content-center align-items-center">
+        <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
+      </li>
       `
       }, {
         name: "#monsterid3",
         monsterhead: ".classh3",
         mosterimgclass: "monimg3",
-        monsterPoints: 0,
+        monsterPoints: 2,
         monsterHtml: `
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span></span>
-        <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+      <li class="list-group-item d-flex justify-content-center align-items-center">
+        <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
       </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span></span>
-        <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+      <li class="list-group-item d-flex justify-content-center align-items-center">
+        <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
       </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span></span>
-        <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span></span>
-        <i class="fas fa-bomb delete" data-toggle="modal" data-target="#exampleModal"></i>
+      `
+      }, {
+        name: "#monsterid4",
+        monsterhead: ".classh4",
+        mosterimgclass: "monimg4",
+        monsterPoints: 1,
+        monsterHtml: `
+      <li class="list-group-item d-flex justify-content-center align-items-center">
+        <h5 style="margin-bottom: 0rem;"><i class="fas fa-check-circle delete" data-toggle="modal" data-target="#exampleModal"></i> you can do it</h5>
       </li>
       `
       }];
@@ -150,12 +166,12 @@ let curentbtn = {
 
 function updatePoints(monsterpoint, headlineclass, monsimg1) {
   var lives = "🖤";
-  var htmli = `Lives: ${lives.repeat(4 - monsterpoint)}`;
+  var htmli = `${lives.repeat(monsterpoint)}`;
   var headline = document.querySelector(headlineclass);
   console.log(htmli);
   console.log(headline);
   headline.innerHTML = htmli;
-  if (monsterpoint >= 4) {
+  if (monsterpoint == 0) {
     console.log("the monster id dead!")
     // maybe insted ad classes..........
 
@@ -169,14 +185,6 @@ restart.addEventListener("click", e => {
   location.reload();
 });
 
-// restart1.addEventListener("click", e => {
-//   // localStorage.clear();
-//   // location.reload();
-//   locallist[0].monsterPoints += 1;
-//   updatePoints(locallist[0].monsterPoints, ".classh1")
-//   localStorage.setItem('books', JSON.stringify(books));
-// });
-
 
 // wthe moment someone pressing a click wait for ans from the model! if you got positive ans do your thing!
 myBtn1.addEventListener('click', e => {
@@ -187,14 +195,20 @@ myBtn1.addEventListener('click', e => {
   
 </li>`;
   curentbtn.element.innerHTML = newHtml;
-  curentbtn.element.style.background = "#7372BD";
+  curentbtn.element.parentElement.style.background = "#778CEB";
   var temp1 = curentbtn.monster;
   curentbtn.element.classList.remove("delete");
-  curentbtn.monster += 1;
+  curentbtn.monster -= 1;
   var temp = curentbtn.monster;
-  locallist[curentbtn.locallistnum].monsterPoints += 1;
-  var localhtml = curentbtn.element.parentElement.innerHTML;
+  locallist[curentbtn.locallistnum].monsterPoints -= 1;
+  var localhtml = curentbtn.element.parentElement.parentElement.innerHTML;
+  console.log("localhtml:");
+  console.log(localhtml);
   locallist[curentbtn.locallistnum].monsterHtml = localhtml;
+  console.log("curentbtn.locallistnum:");
+  console.log(curentbtn.locallistnum);
+  console.log("locallist:");
+  console.log(locallist);
 
   updatePoints(curentbtn.monster, curentbtn.headline, curentbtn.monsimg);
   // change the inner html to the new mondtser
@@ -238,6 +252,17 @@ list3.addEventListener('click', e => {
     curentbtn.monster = locallist[2].monsterPoints;
     curentbtn.headline = ".classh3";
     curentbtn.locallistnum = 2;
+  }
+});
+
+list4.addEventListener('click', e => {
+  if (e.target.classList.contains('delete')) {
+    // e.target.parentElement.classList.add("oktoday");
+    curentbtn.element = e.target.parentElement;
+    curentbtn.monsimg = "monimg4";
+    curentbtn.monster = locallist[3].monsterPoints;
+    curentbtn.headline = ".classh4";
+    curentbtn.locallistnum = 3;
   }
 });
 

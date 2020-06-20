@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/adihd/MyMonster#readme",
   "dependencies": {
+    "@iconscout/unicons": "^2.1.9",
     "bootstrap": "^4.5.0"
   }
 }
